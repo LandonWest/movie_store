@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :purchases, foreign_key :buyer_id
-  has_many :movies, through :purchases
+  has_many :movies, through: :purchases
 
   def cart_count
     $redis.scard "cart#{id}"

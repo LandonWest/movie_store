@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :purchases, foreign_key :buyer_id
+  has_many :purchases, foreign_key: :buyer_id
   has_many :movies, through: :purchases
 
   def cart_count
